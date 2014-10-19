@@ -1,13 +1,12 @@
 package Q1;
 
-import java.util.Scanner;
-
 public class Q1 {
 
     //Primeiro: Imprimir quais são os numeros seguindo as condições iniciais
     //Segundo: Contar os ciclos 
     //Terceiro: Comparar valores e ver qual é o maior ciclos de todos.
-    private static void loop(int initial, int end) {
+    
+    public static  void loop(int initial, int end) {
         int maior = foundCycles(initial, 0);
         int menor = foundCycles(initial, 0);
         int temp ;
@@ -24,11 +23,11 @@ public class Q1 {
          System.out.println(initial+" "+end+" "+maior);
     }
 
-    private static boolean isSecure(int num) {
+    public static boolean isSecure(int num) {
         return num == 1;
     }
 
-    private static int foundCycles(int num, int cont) {
+    public static int foundCycles(int num, int cont) {
         if (isSecure(num)) {          
             return cont + 1;
         } else {
@@ -41,13 +40,11 @@ public class Q1 {
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         int initial = 0;
         int end = 0;
-
-        System.out.println("Write two integers between [0,1,000,000] :");
-        initial = input.nextInt();
-        end = input.nextInt();
+       
+        initial = Integer.parseInt(args[0]);
+        end = Integer.parseInt(args[1]);
 
         loop(initial,end);
     }

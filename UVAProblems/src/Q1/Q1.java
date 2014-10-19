@@ -10,30 +10,27 @@ public class Q1 {
     private static void loop(int initial, int end) {
         int maior = foundCycles(initial, 0);
         int menor = foundCycles(initial, 0);
-        int temp = 0;
+        int temp ;
         for (int i = initial + 1; i <= end; i++) {
             temp = foundCycles(i, 0);
             if (temp > maior) {
-                System.out.println(temp);
                 maior = temp;
             } else {
                 if (temp < menor) {
-                    System.out.println(temp);
                     menor = temp;
                 }
-
             }
         }
+         System.out.println(initial+" "+end+" "+maior);
     }
 
     private static boolean isSecure(int num) {
         return num == 1;
     }
 
-    public static int foundCycles(int num, int cont) {
-        if (isSecure(num)) {
-            System.out.println(cont + 1 + " ciclos.");
-            return cont;
+    private static int foundCycles(int num, int cont) {
+        if (isSecure(num)) {          
+            return cont + 1;
         } else {
             if (num % 2 == 0) {
                 return foundCycles(num / 2, cont + 1);
@@ -52,7 +49,7 @@ public class Q1 {
         initial = input.nextInt();
         end = input.nextInt();
 
-        foundCycles(22, 0);
+        loop(initial,end);
     }
 
 }
